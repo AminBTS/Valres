@@ -1,16 +1,30 @@
+/* Import de la police Roboto depuis Google Fonts */
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
 
+/* Définition des variables de couleur, de police et de fond */
 :root{
     --primary-color: #026307;
     --white-color : #fff;
     --font-family: Roboto;
     --background-color: rgb(255 223 190);;
-    }
+}
 
+/* Animation de fondu au chargement de la page */
+@keyframes fadeInAnimation {
+	0% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
+}
+
+/* Réinitialisation des marges pour tous les éléments */
 * {
     margin: 0;
 }
 
+/* Styles généraux du corps de la page */
 body {
     font-family: var(--font-family);
     margin: 0;
@@ -22,19 +36,7 @@ body {
     overflow-x:hidden;
 }
 
-@keyframes fadeInAnimation {
-	0% {
-		opacity: 0;
-	}
-	100% {
-		opacity: 1;
-	}
-}
-html {
-    scroll-behavior: smooth;
-  }
-
-/* Liens hypertexte */
+/* Styles pour les liens hypertexte */
 a {
     text-decoration: none;
     color: var(--white-color);
@@ -45,8 +47,7 @@ a:hover {
     transition: 225ms ease-in-out;
 }
 
-
-/* Barre de scroll */
+/* Styles pour la barre de défilement personnalisée */
 #style-6::-webkit-scrollbar-track
 {
 	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
@@ -59,13 +60,13 @@ a:hover {
 	background-color: #F5F5F5;
 }
 
-
+/* Styles pour la poignée de la barre de défilement */
 ::-webkit-scrollbar {
-    width: 12px; /* Largeur de la barre de défilement */
+    width: 12px;
 }
 
 ::-webkit-scrollbar-track {
-    background-color: var(--primary-color); /* Couleur de fond de la piste */
+    background-color: var(--primary-color);
 }
 
 ::-webkit-scrollbar-thumb {
@@ -76,6 +77,6 @@ a:hover {
             rgba(255, 255, 255, .2) 50%,
             rgba(255, 255, 255, .2) 75%,
             transparent 75%,
-            transparent); /* Style de la poignée de la barre de défilement */
-    border-radius: 6px; /* Bord arrondi de la poignée */
+            transparent);
+    border-radius: 6px;
 }
