@@ -7,22 +7,23 @@
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../css/members/style.css">
+    <link rel="stylesheet" href="../css/members/style_signin.css">
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/header.css">
 </head>
+</html>
 <body>
 <?php include_once("../includes/_inc_header.php") ?>
     <form>
         <h3>Connexion</h3>
 
-        <label for="username">Pseudo</label>
-        <input type="text" placeholder="Mail ou Pseudo" id="username">
+        <label for="email">E-mail</label>
+        <input type="email" placeholder="Votre e-mail" id="email" required>
 
-        <label for="password">Mot de passe</label>
-        <input type="password" placeholder="Mot de passe" id="password">
+        <label for="motdepasse">Mot de passe</label>
+        <input type="password" placeholder="Votre mot de passe" id="motdepasse" required>
 
-        <button>Se connecter</button>
+        <button>S'inscrire</button>
+        <span>Toujours pas de compte ? Inscrivez-vous <a href="signup.php">ici</a></span>
     </form>
 </body>
-</html>
