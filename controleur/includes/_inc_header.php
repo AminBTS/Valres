@@ -1,19 +1,20 @@
+
+
 <!-- Création du Header -->
 <header>
     <!-- Import du Logo à gauche -->
-        <a href="/"><div class="logoheader" alt="Valres" title="Valres">V</div></a>
-        <nav>
-            <ul>
-                <!-- Import des onglets et leurs lien de navigation -->
-                <li><a href="reservation.php">Réservations</a></li>
-                <li><a href="contact.php">Contact</a></li>
-            </ul>
-        </nav>
-            <a href="../members/signin">Utilisateur non identifié</a>
-        </div>
-        
-    </div>
+    <a href="../index.php"><div class="logoheader" alt="Valres" title="Valres">V</div></a>
+    <nav>
+        <ul>
+            <!-- Import des onglets et leurs lien de navigation -->
+            <li><a href="../index.php?page=reservation">Réservations</a></li>
+            <li><a href="../index.php?page=contact">Contact</a></li>
+        </ul>
+    </nav>
+    <a href="../index.php?page=signin">Utilisateur non identifié</a>
 </header>
 
 <!-- Import du CSS pour le Header -->
-<link rel="stylesheet" href="css/header.css">
+<link rel="stylesheet" href="../css/header.css">
+<!-- Import du CSS pour le Style Principal -->
+<link rel="stylesheet" href="../css/style.css">
