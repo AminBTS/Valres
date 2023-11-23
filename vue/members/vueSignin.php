@@ -13,7 +13,6 @@
 </head>
 </html>
 <body>
-<?php include_once("../includes/_inc_header.php") ?>
     <form>
         <h3>Connexion</h3>
 
@@ -24,6 +23,5 @@
         <input type="password" placeholder="Votre mot de passe" id="motdepasse" required>
 
         <button>S'inscrire</button>
-        <span>Toujours pas de compte ? Inscrivez-vous <a href="signup.php">ici</a></span>
     </form>
 </body>

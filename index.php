@@ -1,39 +1,15 @@
 <?php
-// Inclusion des fichiers nécessaires du contrôleur
-require_once('controleur/includes/_inc_header.php');
+include "getRacine.php";
+include "$racine/controleur/controleurPrincipal.php";
+include "$racine/controleur/includes/_inc_header.php";
+include_once "$racine/modele/data_process.php"; // pour pouvoir utiliser isLoggedOn()
 
-// Inclusion des fichiers nécessaires du modèle
-require_once('modele/data_process.php');
-require_once('modele/database/connexion.php');
-
-// Affichage de la page selon la demande de l'utilisateur
-if (isset($_GET['page'])) {
-    $page = $_GET['page'];
+if (isset($_GET["action"])){
+    $action = $_GET["action"];
 } else {
-    $page = 'index'; // Page par défaut
+    $action = "defaut";
 }
 
-// Gestion des différentes vues
-switch ($page) {
-    case 'contact':
-        include('vue/vueContact.php');
-        break;
-    case 'reservation':
-        include('vue/vueReservation.php');
-        break;
-    // ... Ajoute d'autres cas pour tes différentes pages ici
-    case 'signin':
-        include('members/vueSignin.php');
-        break;
-    case 'signup':
-        include('members/vueSignup.php');
-        break;
-    case 'logout':
-        // Contrôleur pour la déconnexion
-        include('controleur/logout.php');
-        break;
-    default:
-        include('vue/vueIndex.php'); // Page d'accueil par défaut
-        break;
-}
+$fichier = controleurPrincipal($action);
+include "$racine/vue/$fichier"; // Inclusion du fichier de vue correspondant à l'action
 ?>
