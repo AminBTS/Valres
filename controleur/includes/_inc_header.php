@@ -7,11 +7,12 @@
     <nav>
         <ul>
             <!-- Import des onglets et leurs lien de navigation -->
-            <li><a href="../index.php?action=reservation">Réservations</a></li>
-            <li><a href="../index.php?action=contact">Contact</a></li>
+            <li><a href="../index.php?action=Reservation">Réservations</a></li>
+            <li><a href="../index.php?action=Contact">Contact</a></li>
+            <li><a href="../index.php?action=Test">Test</a></li>
         </ul>
     </nav>
-    <a href="../index.php?action=vueSignin">Utilisateur non identifié</a>
+    <a href="../index.php?action=Connexion">Utilisateur non identifié</a>
 </header>
 
 <!-- Import du CSS pour le Header -->

@@ -13,7 +13,7 @@
 </head>
 </html>
 <body>
-    <form>
+    <form action="/modele/data_process.php" method="post">
         <h3>Connexion</h3>
 
         <label for="email">E-mail</label>
@@ -21,7 +21,6 @@
 
         <label for="motdepasse">Mot de passe</label>
         <input type="password" placeholder="Votre mot de passe" id="motdepasse" required>
-
-        <button>S'inscrire</button>
+        <button>Se connecter</button>
     </form>
 </body>

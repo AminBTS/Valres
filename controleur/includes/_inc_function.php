@@ -1,7 +1,20 @@
 <?php
-require_once("database/connexion.php");
+function estConnecte(){
 
-function isConnect(){
+}
+
+function estAdmin(){
+
+}
+function estResponsable(){
+
+}
+
+function estSecretaire(){
+
+}
+
+function estUtilisateur(){
 
 }
 
