@@ -6,10 +6,10 @@
             <ul>
                 <!-- Import des onglets et leurs lien de navigation -->
                 <li><a href="reservation.php">Réservations</a></li>
-                <li><a href="/">Contact</a></li>
+                <li><a href="contact.php">Contact</a></li>
             </ul>
         </nav>
-            <a href="../members/login">Utilisateur non identifié</a>
+            <a href="../members/signin">Utilisateur non identifié</a>
         </div>
         
     </div>
