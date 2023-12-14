@@ -13,14 +13,18 @@
 </head>
 </html>
 <body>
-    <form action="/modele/data_process.php" method="post">
+    <?php if (!estConnecte()) { ?>
+    <form action="../../modele/data_process.php" method="post">
         <h3>Connexion</h3>
 
         <label for="email">E-mail</label>
-        <input type="email" placeholder="Votre e-mail" id="email" required>
+        <input type="email" placeholder="Votre e-mail" id="email" name="email" required>
 
         <label for="motdepasse">Mot de passe</label>
-        <input type="password" placeholder="Votre mot de passe" id="motdepasse" required>
+        <input type="password" placeholder="Votre mot de passe" id="motdepasse" name="motdepasse" required>
         <button>Se connecter</button>
     </form>
+    <?php } else { ?>
+         <h3>Vous êtes déjà connecté, si vous voulez vous déconnecter allez <a href="/controleur/logout.php">ici</a></h3>
+         <?php } ?>
 </body>

@@ -7,20 +7,15 @@
 </head>
 <body>
     <?php 
-    if (estConnecte()){
-        echo "Tu es connecté";
-        if (estSecretaire()){
-            echo "Tu es secrétaire";
-        } else if (estResponsable()){
-            echo "Tu es responsable";
-        } else if(estAdmin()){
-            echo "Tu es administrateur";
-        } else if(estUtilisateur()){
-            echo "Tu es un utilisateur de merde";
-        }
-    } else {
-        echo "Tu n'es pas connecté";
-    }
-    ?>
+// Test des différentes fonctions
+echo "Est connecté : " . (estConnecte() ? 'Oui' : 'Non') . "<br>";
+echo "Est administrateur : " . (estAdmin() ? 'Oui' : 'Non') . "<br>";
+echo "Est responsable : " . (estResponsable() ? 'Oui' : 'Non') . "<br>";
+echo "Est secrétaire : " . (estSecretaire() ? 'Oui' : 'Non') . "<br>";
+echo "Est utilisateur : " . (estUtilisateur() ? 'Oui' : 'Non') . "<br>";
+echo "Tu es : ". getNom(). " " . getPrenom(). "<br>"; 
+echo "Ton mail est : ". getMail();
+?>
 </body>
 </html>
+

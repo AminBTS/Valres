@@ -12,7 +12,15 @@
             <li><a href="../index.php?action=Test">Test</a></li>
         </ul>
     </nav>
-    <a href="../index.php?action=Connexion">Utilisateur non identifié</a>
+    <?php 
+    if (estConnecte()){ ?>
+    <!-- Affichage du nom d'utilisateur, s'il est connecté -->
+        <a href="../index.php?action=Connexion"><?php echo getNom(); ?></a>
+        <?php } else { ?> 
+            <!-- Affichage "Utilisateur non identifié, s'il est pas connecté -->
+            <a href="../index.php?action=Connexion">Utilisateur non identifié</a>
+            <?php } ?>
+        
 </header>
 
 <!-- Import du CSS pour le Header -->
