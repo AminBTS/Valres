@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : jeu. 14 déc. 2023 à 08:53
+-- Généré le : jeu. 14 déc. 2023 à 10:59
 -- Version du serveur : 8.0.31
 -- Version de PHP : 8.0.26
 
@@ -68,6 +68,29 @@ INSERT INTO `etatreservation` (`idEtat`, `libelle`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Structure de la table `periode`
+--
+
+DROP TABLE IF EXISTS `periode`;
+CREATE TABLE IF NOT EXISTS `periode` (
+  `idPeriode` int NOT NULL AUTO_INCREMENT,
+  `libelle` varchar(50) NOT NULL,
+  PRIMARY KEY (`idPeriode`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Déchargement des données de la table `periode`
+--
+
+INSERT INTO `periode` (`idPeriode`, `libelle`) VALUES
+(1, 'Matinée'),
+(2, 'Midi'),
+(3, 'Après-midi'),
+(4, 'Soirée');
+
+-- --------------------------------------------------------
+
+--
 -- Structure de la table `reservation`
 --
 
@@ -75,48 +98,46 @@ DROP TABLE IF EXISTS `reservation`;
 CREATE TABLE IF NOT EXISTS `reservation` (
   `idReservation` int NOT NULL AUTO_INCREMENT,
   `datee` date NOT NULL,
-  `periode` int NOT NULL,
+  `idPeriode` int NOT NULL,
   `idUtilisateur` int NOT NULL,
   `idEtat` int NOT NULL,
   `idSalle` int NOT NULL,
   PRIMARY KEY (`idReservation`),
+  KEY `idPeriode` (`idPeriode`),
   KEY `idUtilisateur` (`idUtilisateur`),
   KEY `idEtat` (`idEtat`),
   KEY `reservation_ibfk_3` (`idSalle`)
-) ENGINE=InnoDB AUTO_INCREMENT=28 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=89 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Déchargement des données de la table `reservation`
 --
 
-INSERT INTO `reservation` (`idReservation`, `datee`, `periode`, `idUtilisateur`, `idEtat`, `idSalle`) VALUES
+INSERT INTO `reservation` (`idReservation`, `datee`, `idPeriode`, `idUtilisateur`, `idEtat`, `idSalle`) VALUES
 (1, '2023-12-10', 1, 1, 1, 1),
-(2, '2023-12-11', 2, 2, 1, 2),
-(3, '2023-12-09', 3, 3, 1, 3),
-(4, '2023-12-15', 1, 4, 2, 4),
-(5, '2023-12-16', 2, 5, 2, 5),
-(6, '2023-12-14', 3, 6, 2, 6),
-(7, '2023-12-14', 1, 7, 3, 7),
-(8, '2023-12-14', 2, 8, 3, 8),
-(9, '2023-12-14', 3, 9, 3, 9),
-(10, '2023-12-10', 1, 1, 1, 1),
-(11, '2023-12-11', 2, 2, 1, 1),
-(12, '2023-12-12', 3, 3, 1, 1),
-(13, '2023-12-14', 1, 4, 2, 4),
-(14, '2023-12-14', 2, 5, 2, 5),
-(15, '2023-12-14', 3, 6, 2, 6),
-(16, '2023-12-14', 1, 7, 3, 7),
-(17, '2023-12-14', 2, 8, 3, 8),
-(18, '2023-12-14', 3, 9, 3, 9),
-(19, '2023-12-15', 1, 1, 1, 1),
-(20, '2023-12-16', 2, 2, 1, 2),
-(21, '2023-12-14', 3, 3, 1, 3),
-(22, '2023-12-14', 1, 4, 2, 4),
-(23, '2023-12-14', 2, 5, 2, 5),
-(24, '2023-12-14', 3, 6, 2, 6),
-(25, '2023-12-14', 1, 7, 3, 7),
-(26, '2023-12-14', 2, 8, 3, 8),
-(27, '2023-12-14', 3, 9, 3, 9);
+(2, '2023-12-11', 2, 2, 1, 1),
+(3, '2023-12-12', 3, 3, 1, 1),
+(4, '2023-12-15', 4, 4, 2, 1),
+(5, '2023-12-16', 2, 5, 2, 1),
+(6, '2023-12-14', 1, 1, 1, 1),
+(7, '2023-12-14', 2, 2, 1, 2),
+(8, '2023-12-14', 3, 3, 1, 3),
+(9, '2023-12-14', 4, 4, 2, 4),
+(10, '2023-12-14', 2, 5, 2, 5),
+(11, '2023-12-14', 3, 6, 2, 6),
+(12, '2023-12-09', 1, 1, 1, 1),
+(13, '2023-12-10', 2, 2, 1, 2),
+(14, '2023-12-11', 3, 3, 1, 3),
+(15, '2023-12-09', 1, 1, 1, 1),
+(16, '2023-12-10', 2, 2, 1, 2),
+(17, '2023-12-11', 3, 3, 1, 3),
+(18, '2023-12-15', 1, 4, 2, 4),
+(19, '2023-12-16', 2, 5, 1, 5),
+(20, '2023-12-17', 3, 6, 1, 6),
+(21, '2023-12-17', 3, 7, 1, 5),
+(22, '2023-12-10', 3, 2, 1, 6),
+(23, '2023-12-08', 3, 7, 1, 1),
+(24, '2023-12-14', 3, 1, 2, 4);
 
 -- --------------------------------------------------------
 
@@ -138,16 +159,20 @@ CREATE TABLE IF NOT EXISTS `salle` (
 --
 
 INSERT INTO `salle` (`idSalle`, `salle_nom`, `idCategorieSalle`) VALUES
-(1, 'Majorelle', 1),
-(2, 'Grüber', 2),
-(3, 'Lamour', 2),
-(4, 'Amphithéâtre', 3),
+(1, 'Daum', 1),
+(2, 'Corbin', 1),
+(3, 'Baccarat', 1),
+(4, 'Longwy', 1),
 (5, 'Multimédia', 2),
-(6, 'Longwy', 1),
-(7, 'Daum', 2),
-(8, 'Gallé', 2),
-(9, 'Corbin', 2),
-(10, 'Baccarat', 2);
+(6, 'Amphithéâtre', 3),
+(7, 'Lamour', 1),
+(8, 'Grüber', 1),
+(9, 'Majorelle', 1),
+(10, 'Salle de restauration', 2),
+(11, 'Galerie', 1),
+(12, 'Salle informatique', 2),
+(13, 'Hall d\'accueil', 2),
+(14, 'Gallé', 1);
 
 -- --------------------------------------------------------
 
@@ -231,9 +256,10 @@ INSERT INTO `utilisateur` (`idUtilisateur`, `nom`, `prenom`, `mail`, `motDePasse
 (4, 'TORTEMANN', 'PIERRE', 'pierre@gmail.com', 'pierre1932', 7, 4),
 (5, 'PERNOT', 'LEA', 'lea@gmail.com', 'lea1408', 6, 4),
 (6, 'ZUEL', 'STEPHANIE', 'stephanie@gmail.com', 'stephanie131231', 2, 4),
-(7, 'DUBOIS', 'EMILIE', 'emilie@gmail.com', 'emilie123', 7, 1),
+(7, 'LIEVIN', 'NATHAN', 'nathan@gmail.com', 'nathan1111', 3, 4),
 (8, 'LEROY', 'NICOLAS', 'nicolas@gmail.com', 'nicolas456', 7, 2),
-(9, 'MARTIN', 'LAURA', 'laura@gmail.com', 'laura789', 7, 3);
+(9, 'MARTIN', 'LAURA', 'laura@gmail.com', 'laura789', 7, 3),
+(10, 'PICARD', 'Emilie', 'emilie@gmail.com', 'emilie9982', 7, 1);
 
 --
 -- Contraintes pour les tables déchargées
@@ -245,7 +271,8 @@ INSERT INTO `utilisateur` (`idUtilisateur`, `nom`, `prenom`, `mail`, `motDePasse
 ALTER TABLE `reservation`
   ADD CONSTRAINT `reservation_ibfk_1` FOREIGN KEY (`idUtilisateur`) REFERENCES `utilisateur` (`idUtilisateur`),
   ADD CONSTRAINT `reservation_ibfk_2` FOREIGN KEY (`idEtat`) REFERENCES `etatreservation` (`idEtat`),
-  ADD CONSTRAINT `reservation_ibfk_3` FOREIGN KEY (`idSalle`) REFERENCES `salle` (`idSalle`);
+  ADD CONSTRAINT `reservation_ibfk_3` FOREIGN KEY (`idSalle`) REFERENCES `salle` (`idSalle`),
+  ADD CONSTRAINT `reservation_ibfk_4` FOREIGN KEY (`idPeriode`) REFERENCES `periode` (`idPeriode`);
 
 --
 -- Contraintes pour la table `salle`
