@@ -8,13 +8,19 @@
 <body>
     <?php 
 // Test des différentes fonctions
-echo "Est connecté : " . (estConnecte() ? 'Oui' : 'Non') . "<br>";
-echo "Est administrateur : " . (estAdmin() ? 'Oui' : 'Non') . "<br>";
-echo "Est responsable : " . (estResponsable() ? 'Oui' : 'Non') . "<br>";
-echo "Est secrétaire : " . (estSecretaire() ? 'Oui' : 'Non') . "<br>";
-echo "Est utilisateur : " . (estUtilisateur() ? 'Oui' : 'Non') . "<br>";
-echo "Tu es : ". getNom(). " " . getPrenom(). "<br>"; 
-echo "Ton mail est : ". getMail();
+if (estConnecte()){
+    echo "Est connecté : " . (estConnecte() ? 'Oui' : 'Non') . "<br>";
+    echo "Est administrateur : " . (estAdmin() ? 'Oui' : 'Non') . "<br>";
+    echo "Est responsable : " . (estResponsable() ? 'Oui' : 'Non') . "<br>";
+    echo "Est secrétaire : " . (estSecretaire() ? 'Oui' : 'Non') . "<br>";
+    echo "Est utilisateur : " . (estUtilisateur() ? 'Oui' : 'Non') . "<br>";
+    echo "Tu es : ". getNom(). " " . getPrenom(). "<br>"; 
+    echo "Ton mail est : ". getMail();
+}else {
+    echo "Tu n'es pas connecté chef";
+}
+
+
 ?>
 </body>
 </html>
