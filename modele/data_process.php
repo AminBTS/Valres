@@ -1,5 +1,5 @@
 <?php
-include_once "database/bd.inc.php";
+include_once "bd.inc.php";
 // Vérification des données du formulaire
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['email']) && isset($_POST['motdepasse'])) {
     $email = $_POST['email'];

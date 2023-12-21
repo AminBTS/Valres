@@ -1,11 +1,9 @@
 <?php
 include "getRacine.php";
 //Importation de la base de donnée (à enlever)
-include_once("$racine/modele/database/bd.inc.php");
-include "$racine/controleur/includes/_inc_function.php";
+include_once("$racine/modele/bd.inc.php");
+include_once "$racine/modele/authentification.inc.php";
 include "$racine/controleur/controleurPrincipal.php";
-include "$racine/controleur/includes/_inc_header.php";
-
 include_once "$racine/modele/data_process.php"; // pour pouvoir utiliser isLoggedOn()
 
 if (isset($_GET["action"])){
