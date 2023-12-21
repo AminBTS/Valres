@@ -1,7 +1,7 @@
 <?php
 include "getRacine.php";
 //Importation de la base de donnée (à enlever)
-include_once("$racine/modele/database/connexion.php");
+include_once("$racine/modele/database/bd.inc.php");
 include "$racine/controleur/includes/_inc_function.php";
 include "$racine/controleur/controleurPrincipal.php";
 include "$racine/controleur/includes/_inc_header.php";
@@ -15,5 +15,5 @@ if (isset($_GET["action"])){
 }
 
 $fichier = controleurPrincipal($action);
-include "$racine/vue/$fichier"; // Inclusion du fichier de vue correspondant à l'action
+include "$racine/controleur/$fichier"; // Inclusion du fichier de vue correspondant à l'action
 ?>
